@@ -9,7 +9,7 @@ test('serialize', (t) => {
     const props = new Map<string, string>() as ServerProps
     props.set('hello', 'world')
     
-    t.is(serialize(props), 'hello=world');
+    t.deepEqual(serialize(props), 'hello=world');
 });
 
 test('deserialize', (t) => {
@@ -18,5 +18,5 @@ test('deserialize', (t) => {
     const props = new Map<string, string>() as ServerProps
     props.set('hello', 'world')
 
-    t.is(deserialize('hello=world'), props);
+    t.deepEqual(deserialize('hello=world'), props);
 });

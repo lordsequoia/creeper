@@ -1,17 +1,17 @@
 import test from 'ava';
-import { mkdir, unlinkSync, writeFileSync } from 'fs-extra';
+import { unlinkSync, writeFileSync } from 'fs-extra';
 
 import useServer from './server';
 
 test('loadServer', (t) => {
-    mkdir('./tmp')
-    writeFileSync('./tmp/.creeper', 'SERVER_DIR=.')
-    writeFileSync('./tmp/server.properties', 'foo=bar\nhello=world')
+    writeFileSync('.creeper', 'SERVER_DIR=.')
+    writeFileSync('server.properties', 'foo=bar\nhello=world')
 
     const { loadServer } = useServer()
-    const { props } = loadServer({ rootDir: './tmp'})
+    const { props } = loadServer({ rootDir: '.'})
 
-    unlinkSync('./tmp')
+    unlinkSync('./.creeper')
+    unlinkSync('./server.properties')
 
     t.is(props.get('foo'), 'bar');
     t.is(props.get('hello'), 'world');
