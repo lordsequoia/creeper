@@ -20,6 +20,9 @@ export type ServerFsWatchAborter = () => void
 export type ServerFsWatchCallback = (action: ServerFsWatchAction) => void
 export type ServerFsSearchCallback = (files: string[]) => void
 
+/**
+ * Describes the behavior and features of a filesystem.
+ */
 export type ServerFs = {
     readonly exists: (path: string) => boolean;
     readonly read: (path: string) => Buffer;
@@ -33,7 +36,18 @@ export type UseServerFs = {
     loadFromDisk: (rootDir?: string) => ServerFs;
 }
 
+/**
+ * 
+ * @returns 
+ */
 export function useServerFs(): UseServerFs {
+
+    /**
+     * Bootstrap a Minecraft server filesystem by loading a directory from disk.
+     * 
+     * @param rootDir The directory that contains your server.properties file
+     * @returns 
+     */
     function loadFromDisk(rootDir?: string): ServerFs {
         const serverDir = rootDir || '.'
 

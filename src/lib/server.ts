@@ -27,3 +27,5 @@ export function useServer(): UseServer {
 
     return { loadServer }
 }
+
+export default useServer
