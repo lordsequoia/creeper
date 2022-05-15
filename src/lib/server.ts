@@ -17,12 +17,10 @@ export type UseServer = {
 export function useServer(): UseServer {
     function loadServer(options?: ServerLoaderOptions): Server {
         const { loadFromDisk } = useServerFs()
-        const { deserialize } = useServerProps()
+        const { loadFromFs } = useServerProps()
 
         const fs = loadFromDisk(options?.rootDir || '.')
-
-        if (!fs.exists('server.p'))
-            const props = deserialize(String(fs.read('server.properties')))
+        const props = loadFromFs(fs)
 
         return { fs, props }
     }
