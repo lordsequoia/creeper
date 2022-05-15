@@ -16,7 +16,7 @@
 ## Install
 
 ```sh
-npm install
+npm install @lordsequoia/creeper
 ```
 
 ## Run tests
@@ -24,6 +24,13 @@ npm install
 ```sh
 npm run test
 ```
+
+## Author
+
+👤 **LordSequoia**
+
+* Website: https://seqmc.com
+* Github: [@lordsequoia](https://github.com/lordsequoia)
 
 ## Show your support
 
