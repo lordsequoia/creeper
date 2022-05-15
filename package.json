@@ -1,11 +1,11 @@
 {
-  "name": "@lordsequoia/creeper",
+  "name": "creeper-ts",
   "version": "1.0.0",
-  "description": "Vanilla Minecraft Server SDK",
+  "description": "A TypeScript SDK for dissecting (vanilla) Minecraft servers and server files.",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
-  "repository": "https://github.com/lordsequoia/creeper",
+  "repository": "https://github.com/lordsequoia/creeper-ts",
   "license": "MIT",
   "keywords": [],
   "scripts": {

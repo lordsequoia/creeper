@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to @lordsequoia/creeper 👋</h1>
+<h1 align="center">Welcome to creeper-ts 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <img src="https://img.shields.io/badge/node-%3E%3D10-blue.svg" />
@@ -7,7 +7,7 @@
   </a>
 </p>
 
-> Vanilla Minecraft Server SDK
+> creeper-ts: a TypeScript SDK for dissecting (vanilla) Minecraft servers and server files.
 
 ## Prerequisites
 
@@ -16,7 +16,7 @@
 ## Install
 
 ```sh
-npm install @lordsequoia/creeper
+npm install creeper-ts
 ```
 
 ## Run tests
