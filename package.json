@@ -1,7 +1,7 @@
 {
-  "name": "creeper",
+  "name": "@lordsequoia/creeper",
   "version": "1.0.0",
-  "description": "Minecraft Server Stalking Framework",
+  "description": "Vanilla Minecraft Server SDK",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
