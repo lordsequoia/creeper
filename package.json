@@ -45,10 +45,12 @@
     "@bitauth/libauth": "^1.17.1",
     "@types/fs-extra": "^9.0.13",
     "@types/glob": "^7.2.0",
+    "@types/vec3": "^0.1.4",
     "@types/zeromq": "^5.2.1",
     "chokidar": "^3.5.3",
     "fs-extra": "^10.1.0",
     "glob": "^8.0.3",
+    "vec3": "^0.1.7",
     "zeromq": "^5.2.8"
   },
   "devDependencies": {
