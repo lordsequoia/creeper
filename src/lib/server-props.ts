@@ -41,9 +41,9 @@ export function useServerProps(): UseServerProps {
 
   /**
    * TODO
-   * 
-   * @param value 
-   * @returns 
+   *
+   * @param value
+   * @returns
    */
   function deserialize(value: string): ServerProps {
     const map = new Map<string, string>([]);
@@ -61,9 +61,9 @@ export function useServerProps(): UseServerProps {
 
   /**
    * TODO
-   * 
-   * @param fs 
-   * @returns 
+   *
+   * @param fs
+   * @returns
    */
   function loadFromFs(fs: ServerFs): ServerProps {
     if (!fs.exists(SERVER_PROPS_FILENAME))
@@ -76,10 +76,10 @@ export function useServerProps(): UseServerProps {
 
   /**
    * TODO
-   * 
-   * @param props 
-   * @param fs 
-   * @returns 
+   *
+   * @param props
+   * @param fs
+   * @returns
    */
   function writeToFs(props: ServerProps, fs: ServerFs): void {
     const data = serialize(props);
