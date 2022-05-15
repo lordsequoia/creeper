@@ -39,6 +39,12 @@ export function useServerProps(): UseServerProps {
     return Array.from(output).join('\n');
   }
 
+  /**
+   * TODO
+   * 
+   * @param value 
+   * @returns 
+   */
   function deserialize(value: string): ServerProps {
     const map = new Map<string, string>([]);
 
@@ -53,6 +59,12 @@ export function useServerProps(): UseServerProps {
     return map as ServerProps;
   }
 
+  /**
+   * TODO
+   * 
+   * @param fs 
+   * @returns 
+   */
   function loadFromFs(fs: ServerFs): ServerProps {
     if (!fs.exists(SERVER_PROPS_FILENAME))
       throw new Error(`No server.properties file found.`);
@@ -62,6 +74,13 @@ export function useServerProps(): UseServerProps {
     return props;
   }
 
+  /**
+   * TODO
+   * 
+   * @param props 
+   * @param fs 
+   * @returns 
+   */
   function writeToFs(props: ServerProps, fs: ServerFs): void {
     const data = serialize(props);
 

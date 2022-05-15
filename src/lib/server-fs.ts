@@ -70,10 +70,15 @@ export function useServerFs(): UseServerFs {
 
     const exists = (path: string) => fs.existsSync(resolve(serverDir, path));
     const read = (path: string) => fs.readFileSync(resolve(serverDir, path));
-    const write = (path: string, contents: Buffer | string) =>
-      fs.writeFileSync(resolve(serverDir, path), contents);
+    const write = (path: string, contents: Buffer | string) => fs.writeFileSync(resolve(serverDir, path), contents);
     const list = (path: string) => fs.readdirSync(resolve(serverDir, path));
 
+    /**
+     * TODO
+     * 
+     * @param pattern 
+     * @param callback 
+     */
     function search(pattern: string, callback: ServerFsSearchCallback): void {
       const handler = (err: Error | null, matches: string[]) => {
         let results: string[] = [];
@@ -88,6 +93,13 @@ export function useServerFs(): UseServerFs {
       glob(pattern, handler);
     }
 
+    /**
+     * TODO
+     * 
+     * @param paths 
+     * @param callback 
+     * @returns 
+     */
     function watch(paths: readonly string[], callback: ServerFsWatchCallback) {
       const watcher = chokidar.watch(paths, {});
 
