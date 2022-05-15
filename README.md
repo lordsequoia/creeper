@@ -25,6 +25,59 @@ npm install creeper-ts
 npm run test
 ```
 
+## Examples
+
+### Update the 'level-name' property in server.properties
+
+```ts
+import { useServerFs, useServerProps } from 'creeper-ts'
+
+function main(rootDir: string, newLevelName: string) {
+
+  const { loadFromDisk } = useServerFs()
+  const { loadFromFs, writeToFs } = useServerProps()
+
+  const fs = loadFromDisk(config.serverDir)
+  const props = loadFromFs(fs)
+
+  props.set('level-name', newLevelName)
+
+  writeToFs(props, fs)
+}
+
+main('/data/minecraft', 'new-world')
+```
+
+### Load a server from disk
+
+```ts
+import { useServer } from 'creeper-ts'
+
+function main(rootDir: string): Server {
+  const { loadServer } = useServer()
+
+  return loadServer({ rootDir })
+}
+
+main('/data/minecraft')
+```
+
+### Serialize server props
+```ts
+function main () {
+  const server = createServer()
+
+  const { serialize } = useServerProps()
+
+  server.props.set('level-name', 'creeper-world')
+  const propsString = serialize(server.props)
+
+  console.log(propsString)
+
+  // Outputs: level-name=creeper-world
+}
+```
+
 ## Author
 
 👤 **LordSequoia**
