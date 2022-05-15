@@ -5,7 +5,7 @@
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
-  "repository": "https://github.com/seqkit/creeper",
+  "repository": "https://github.com/lordsequoia/creeper",
   "license": "MIT",
   "keywords": [],
   "scripts": {
@@ -41,7 +41,14 @@
     "node": ">=10"
   },
   "dependencies": {
-    "@bitauth/libauth": "^1.17.1"
+    "@bitauth/libauth": "^1.17.1",
+    "@types/fs-extra": "^9.0.13",
+    "@types/glob": "^7.2.0",
+    "@types/zeromq": "^5.2.1",
+    "chokidar": "^3.5.3",
+    "fs-extra": "^10.1.0",
+    "glob": "^8.0.3",
+    "zeromq": "^5.2.8"
   },
   "devDependencies": {
     "@ava/typescript": "^1.1.1",
