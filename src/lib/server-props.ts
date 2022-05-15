@@ -2,10 +2,20 @@
 /* eslint-disable functional/no-throw-statement */
 /* eslint-disable functional/prefer-readonly-type */
 import { ServerFs } from './server-fs';
+
+/**
+ * Contains the filename for the server properties file.
+ */
 export const SERVER_PROPS_FILENAME = 'server.properties';
 
+/**
+ * TODO
+ */
 export type ServerProps = Map<string, string>;
 
+/**
+ * TODO
+ */
 export type UseServerProps = {
   serialize: (value: ServerProps) => string;
   deserialize: (value: string) => ServerProps;
@@ -13,6 +23,11 @@ export type UseServerProps = {
   writeToFs: (props: ServerProps, fs: ServerFs) => void;
 };
 
+/**
+ * TODO
+ *
+ * @returns
+ */
 export function useServerProps(): UseServerProps {
   function serialize(value: ServerProps) {
     const output = new Set<string>([]);

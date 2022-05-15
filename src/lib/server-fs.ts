@@ -7,16 +7,35 @@ import chokidar from 'chokidar';
 import fs from 'fs-extra';
 import glob from 'glob';
 
+/**
+ * TODO
+ */
+export type UseServerFs = {
+  loadFromDisk: (rootDir?: string) => ServerFs;
+};
+
+/**
+ * TODO
+ */
 export type ServerFsWatchEvent = 'CREATE' | 'UPDATE' | 'DELETE';
 
+/**
+ * TODO
+ */
 export type ServerFsWatchAction = {
   readonly file: string;
   readonly event: ServerFsWatchEvent;
   readonly stats?: fs.Stats;
 };
 
+/**
+ * TODO
+ */
 export type ServerFsWatchAborter = () => void;
 
+/**
+ * TODO
+ */
 export type ServerFsWatchCallback = (action: ServerFsWatchAction) => void;
 export type ServerFsSearchCallback = (files: string[]) => void;
 
@@ -33,10 +52,6 @@ export type ServerFs = {
     paths: readonly string[],
     callback: ServerFsWatchCallback
   ) => ServerFsWatchAborter;
-};
-
-export type UseServerFs = {
-  loadFromDisk: (rootDir?: string) => ServerFs;
 };
 
 /**

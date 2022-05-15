@@ -1,19 +1,33 @@
 import useServerFs, { ServerFs } from './server-fs';
 import useServerProps, { ServerProps } from './server-props';
 
+/**
+ * TODO
+ */
 export type Server = {
   readonly fs: ServerFs;
   readonly props: ServerProps;
 };
 
+/**
+ * TODO
+ */
 export type ServerLoaderOptions = {
   readonly rootDir?: string;
 };
 
+/**
+ * TODO
+ */
 export type UseServer = {
   readonly loadServer: (options?: ServerLoaderOptions) => Server;
 };
 
+/**
+ * TODO
+ *
+ * @returns
+ */
 export function useServer(): UseServer {
   function loadServer(options?: ServerLoaderOptions): Server {
     const { loadFromDisk } = useServerFs();
