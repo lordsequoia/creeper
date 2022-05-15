@@ -29,6 +29,7 @@ export function useServerProps(): UseServerProps {
         const map = new Map<string, string>([])
 
         value.split("\n").map((line: string) => line.trim().split('=', 2))
+            .filter(([, value]) => value != undefined)
             .forEach(([key, value]) => {
                 map.set(key, value)
             })
