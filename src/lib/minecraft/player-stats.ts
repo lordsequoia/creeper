@@ -1,5 +1,4 @@
-/* eslint-disable functional/no-throw-statement */import { Vec3 } from 'vec3'
-
+/* eslint-disable functional/no-throw-statement */
 import { Server } from '../server';
 
 export type PlayerStats = ReadonlyMap<string, string>
@@ -16,6 +15,7 @@ export function usePlayerStats() {
         if (!server.fs.exists(statsFile)) throw new Error(`Player stats not found: ${uuid}`) 
         
         const rawData = server.fs.read(statsFile)
+        console.log(`loadPlayerStats: ${rawData}`, { statsFile, rawData})
         // parse nbt
 
         return {} as PlayerStats
