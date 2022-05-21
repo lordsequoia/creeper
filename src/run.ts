@@ -1,16 +1,25 @@
 #!/usr/bin/env node
 
-import { useServer, useServerPublisher } from './index';
+import { Emission, useEmitterClient, useServer } from './index';
 
-function main(rootDir?: string) {
-    const { createPublisher } = useServerPublisher()
+function serve(rootDir?: string) {
     const { loadServer } = useServer()
-    const server = loadServer({ rootDir })
-    const { startWatching } = createPublisher(server)
-
-    const stopWatching = startWatching()
-
-    return { stopWatching }
+    return loadServer({ rootDir, emitFs: true })
 }
 
-main('./tmp')
+function main() {
+    const server = serve('/Volumes/HOME/server')
+    console.log(`Server is: ${typeof server}`)
+
+    const { createClient } = useEmitterClient()
+
+    const client = createClient({ host: '127.0.0.1', port: 7001 })
+
+    client.subscribeTo('fs', (emission: Emission) => {
+        const action = emission.data as { readonly file: string, readonly event: string }
+
+        console.log(`YO! ${action.event} on: ${action.file}`)
+    })
+}
+
+export default main()

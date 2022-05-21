@@ -6,9 +6,13 @@ import { Server } from '../server';
 import { ItemSlot } from "./item"
 
 export type PlayerData = {
+    readonly Score: number
     readonly Pos: Vec3;
     readonly EnderItems: readonly ItemSlot[]
     readonly Inventory: readonly ItemSlot[]
+    readonly SpawnX: number
+    readonly SpawnY: number
+    readonly SpawnZ: number
 }
 
 export function usePlayerData() {

@@ -1,7 +1,8 @@
+import { Server } from "../server";
+
 import { PlayerData, usePlayerData } from "./player-data"
 import { PlayerStats, usePlayerStats } from "./player-stats";
 
-import { Server } from "../server";
 
 export type Player = {
     readonly server: Server;
