@@ -1,9 +1,9 @@
 /* eslint-disable functional/no-throw-statement */
 import { Vec3 } from 'vec3'
 
-import { Server } from '../server';
-
 import { ItemSlot } from "./item"
+import { Server } from './server';
+
 
 export type PlayerData = {
     readonly Score: number

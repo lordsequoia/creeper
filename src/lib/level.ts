@@ -1,6 +1,5 @@
-import { Server } from "../server"
-
 import { ServerLevelData } from "./level-data"
+import { Server } from "./server"
 
 export type ServerLevel = {
     readonly name: string

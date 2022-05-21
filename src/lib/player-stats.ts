@@ -1,5 +1,5 @@
 /* eslint-disable functional/no-throw-statement */
-import { Server } from '../server';
+import { Server } from './server';
 
 export type PlayerStats = ReadonlyMap<string, string>
 

@@ -1,7 +1,7 @@
 import { parse, stringify } from 'nbt-ts'
 
-import { Server } from '../server';
-import { ServerFs } from '../server-fs';
+import { Server } from './server';
+import { ServerFs } from './server-fs';
 
 export const SERVER_LEVEL_DATA_FILENAME = 'level.dat'
 
