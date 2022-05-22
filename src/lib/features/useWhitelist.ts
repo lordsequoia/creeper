@@ -1,7 +1,6 @@
-/* eslint-disable functional/no-return-void */
 /* eslint-disable functional/no-throw-statement */
-/* eslint-disable functional/prefer-readonly-type */
-import { ServerFs } from './server-fs';
+/* eslint-disable functional/no-return-void */
+import { Filesystem } from '../core';
 
 /**
  * Contains the filename for the whitelist file.
@@ -11,16 +10,16 @@ export const WHITELIST_FILENAME = 'whitelist.json';
 /**
  * TODO
  */
-export type Whitelist = Map<string, string>;
+export type Whitelist = ReadonlyMap<string, string>;
 
 /**
  * TODO
  */
 export type UseWhitelist = {
-  serialize: (value: Whitelist) => string;
-  deserialize: (value: string) => Whitelist;
-  loadFromFs: (fs: ServerFs) => Whitelist;
-  writeToFs: (props: Whitelist, fs: ServerFs) => void;
+  readonly serialize: (value: Whitelist) => string;
+  readonly deserialize: (value: string) => Whitelist;
+  readonly loadFromFs: (fs: Filesystem) => Whitelist;
+  readonly writeToFs: (props: Whitelist, fs: Filesystem) => void;
 };
 
 /**
@@ -29,35 +28,34 @@ export type UseWhitelist = {
  * @returns
  */
 export function useWhitelist(): UseWhitelist {
-  
   /**
    * TODO
-   * 
-   * @param value 
-   * @returns 
+   *
+   * @param value
+   * @returns
    */
   function serialize(value: Whitelist) {
-    const data = Array.from(value)
+    const data = Array.from(value);
 
     return JSON.stringify(data, null, 2);
   }
 
   function deserialize(value: string): Whitelist {
-    const data = JSON.parse(value)
+    const data = JSON.parse(value);
 
     return data as Whitelist;
   }
 
-  function loadFromFs(fs: ServerFs): Whitelist {
+  function loadFromFs(fs: Filesystem): Whitelist {
     if (!fs.exists(WHITELIST_FILENAME))
-      throw new Error(`No server.properties file found.`);
+      throw new Error(`File not found: ${WHITELIST_FILENAME}.`);
 
     const list = deserialize(String(fs.read(WHITELIST_FILENAME)));
 
     return list;
   }
 
-  function writeToFs(props: Whitelist, fs: ServerFs): void {
+  function writeToFs(props: Whitelist, fs: Filesystem): void {
     const data = serialize(props);
 
     fs.write(WHITELIST_FILENAME, data);

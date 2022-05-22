@@ -1,19 +1,6 @@
 /* eslint-disable functional/no-throw-statement */
-import { Vec3 } from 'vec3'
-
-import { ItemSlot } from "./item"
-import { Server } from './server';
-
-
-export type PlayerData = {
-    readonly Score: number
-    readonly Pos: Vec3;
-    readonly EnderItems: readonly ItemSlot[]
-    readonly Inventory: readonly ItemSlot[]
-    readonly SpawnX: number
-    readonly SpawnY: number
-    readonly SpawnZ: number
-}
+import { Server } from "../core"
+import { PlayerData } from "../shapes"
 
 export function usePlayerData() {
     

@@ -1,7 +1,6 @@
 /* eslint-disable functional/no-throw-statement */
-import { Server } from './server';
-
-export type PlayerStats = ReadonlyMap<string, string>
+import { Server } from "../core"
+import { PlayerStats } from "../shapes"
 
 export function usePlayerStats() {
     
