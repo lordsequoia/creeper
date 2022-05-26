@@ -1,4 +1,4 @@
-import { ServerLoaderOptions, useServer } from './lib';
+import { ServerLoaderOptions, useServer } from './lib/features/servers';
 
 export * from './lib';
 
