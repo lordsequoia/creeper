@@ -1,14 +1,14 @@
-import { Server } from "../../core/server";
+import { Server } from '../..';
 
-import { PlayerData, PlayerStats  } from ".";
+import { PlayerData, PlayerStats } from '.';
 
 export type Player = {
-    readonly server: Server;
-    readonly uuid: string;
-    readonly name: string;
-    readonly data: PlayerData;
-    readonly stats: PlayerStats;
-    readonly online: boolean;
-}
+  readonly server: Server;
+  readonly uuid: string;
+  readonly name: string;
+  readonly data: PlayerData;
+  readonly stats: PlayerStats;
+  readonly online: boolean;
+};
 
-export default Player
+export default Player;

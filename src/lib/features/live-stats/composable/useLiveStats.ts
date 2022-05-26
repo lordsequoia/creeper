@@ -1,18 +1,12 @@
 /* eslint-disable functional/no-return-void */
-import { Message, Subscriber } from '../core/pubsub';
-import { FilesystemMessage } from '../core/filesystems';
-export type PlayerStatsTrackerFeature = {};
 
-type Gain = any;
-type Stat = any;
+import { FilesystemMessage } from '../../filesystems';
+import { Message, Subscriber } from '../../pubsub';
+import { Stat } from '../../statistics';
+import { STATS_FILE_REGEX } from '../constants';
+import { OnGainCallback } from '../types';
 
-export type OnGainCallback = (gain: Gain) => void;
-
-export const STATS_FILE_REGEX = /[A-Z]/g;
-
-export function useLiveStats(
-  subscriber: Subscriber
-): PlayerStatsTrackerFeature {
+export function useLiveStats(subscriber: Subscriber) {
   const stats = new Map<string, readonly Stat[]>();
 
   function onGain(callback: OnGainCallback): void {
@@ -22,6 +16,7 @@ export function useLiveStats(
 
       if (matches?.length) {
         // TODO: do something with callback and microdiff
+        callback({});
       }
 
       return;
