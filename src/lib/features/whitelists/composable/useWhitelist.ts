@@ -1,14 +1,16 @@
-/* eslint-disable functional/no-throw-statement */
-/* eslint-disable functional/no-return-void */
-import { Filesystem } from '../core';
-
+import { Filesystem } from '../../filesystems';
+import { loadWhitelistFromFs } from '../utils';
 /**
  * TODO
  *
  * @returns
  */
-export function useWhitelist(): UseWhitelist {
-  return { serialize, deserialize, loadFromFs, writeToFs };
+export function useWhitelist(fs: Filesystem) {
+  const loadWhitelist = () => loadWhitelistFromFs(fs);
+
+  const whitelist = loadWhitelist;
+
+  return { whitelist, loadWhitelist };
 }
 
 export default useWhitelist;

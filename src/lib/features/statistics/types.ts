@@ -5,4 +5,4 @@ export type Gain = {
   readonly delta: number;
 };
 
-export type Stat = any;
+export type Stat = string;

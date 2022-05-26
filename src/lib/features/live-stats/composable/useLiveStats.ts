@@ -3,7 +3,7 @@
 import { FilesystemMessage } from '../../filesystems';
 import { Message, Subscriber } from '../../pubsub';
 import { Stat } from '../../statistics';
-import { STATS_FILE_REGEX } from '../constants';
+import { STATS_FILE_REGEX } from '../../statistics/constants';
 import { OnGainCallback } from '../types';
 
 export function useLiveStats(subscriber: Subscriber) {
@@ -16,7 +16,12 @@ export function useLiveStats(subscriber: Subscriber) {
 
       if (matches?.length) {
         // TODO: do something with callback and microdiff
-        callback({});
+        callback({
+          uuid: '',
+          ts: 0,
+          delta: 1,
+          stat: '',
+        });
       }
 
       return;
